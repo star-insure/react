@@ -1,0 +1,70 @@
+{
+    "name": "@star-insure/react",
+    "author": "alexclark_nz",
+    "version": "0.1.0",
+    "description": "A React component library for Star Insure",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=10"
+    },
+    "scripts": {
+        "dev": "tsdx watch",
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test --passWithNoTests",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
+    },
+    "peerDependencies": {
+        "react": ">=16"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "prettier": {
+        "printWidth": 80,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5"
+    },
+    "module": "dist/starinsure-react.esm.js",
+    "size-limit": [
+        {
+            "path": "dist/starinsure-react.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/starinsure-react.esm.js",
+            "limit": "10 KB"
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
+        "@types/react": "^18.0.14",
+        "@types/react-dom": "^18.0.5",
+        "husky": "^8.0.1",
+        "np": "^7.6.1",
+        "size-limit": "^7.0.8",
+        "tsdx": "^0.14.1",
+        "tslib": "^2.4.0",
+        "typescript": "^3.9.10"
+    },
+    "dependencies": {
+        "@headlessui/react": "^1.6.4",
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-react": "^0.8.0",
+        "@star-insure/sdk": "^0.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}
