@@ -1,5 +1,13 @@
-export * as Button from './Button';
-export * as Card from './Card';
-export * as Pagination from './Pagination';
-export * as Toast from './Toast';
-export * as Toasts from './Toasts';
+import Button from './Button';
+import Card from './Card';
+import Pagination from './Pagination';
+import Toast from './Toast';
+import Toasts from './Toasts';
+
+export {
+    Button,
+    Card,
+    Pagination,
+    Toast,
+    Toasts,
+}
