@@ -1,6 +1,5 @@
 const prodConfig = {
     key: 'XVAKN4Q9PREJD8CUTFBW',
-    secret: 'WKBQ43CXFTGAVJNLE8MP',
     baseUrl: 'https://api.addressfinder.io/api/nz/address',
 }
 
@@ -87,7 +86,7 @@ export async function autocomplete(search: string): Promise<AddressCompletion[]>
 }
 
 export async function getAddressData(completion: AddressCompletion): Promise<AddressData|null> {
-    const { key, baseUrl, secret } = config;
+    const { key, baseUrl } = config;
 
     const res = await fetch(`${baseUrl}/metadata/?key=${key}&pxid=${completion.pxid}&format=json`);
 
