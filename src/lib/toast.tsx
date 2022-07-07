@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { Toast } from "@star-insure/sdk";
-
 interface ToastContextInterface {
     toasts: Toast[];
     addToast: (toast: Toast) => void;
