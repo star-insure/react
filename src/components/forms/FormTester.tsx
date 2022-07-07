@@ -110,6 +110,8 @@ export default function FormTester() {
                 window.removeEventListener('keydown', (e: KeyboardEvent) => handleKeydown(e));
             }
         }
+
+        return;
     }, []);
 
     if (isDev) {
