@@ -13,12 +13,12 @@ export default function DateOfBirthField({ value, onChange }: Props) {
         year: value?.split("-")[0] || '',
     });
 
-    const dayOptions = [...Array(31).keys()].map(value => {
+    const dayOptions = [...Array.from(Array(31).keys())].map(value => {
         return padStart(`${value + 1}`, 2, '0');
     });
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const monthOptions = [...Array(12).keys()].map(value => {
+    const monthOptions = [...Array.from(Array(12).keys())].map(value => {
         return {
             title: months[value],
             value: padStart(`${value + 1}`, 2, '0')
