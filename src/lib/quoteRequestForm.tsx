@@ -7,7 +7,7 @@ interface QuoteRequestFormContextInterface {
     handleChange?: (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => void;
 }
 
-const initialData: QuoteRequestForm = {
+export const initialData: QuoteRequestForm = {
     id: undefined,
     status: 'new',
     source: 'web',
