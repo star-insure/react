@@ -116,4 +116,29 @@ export function QuoteRequestFormProvider({ children }: { children: React.ReactNo
     );
 }
 
+/**
+ * Takes in a quote request and returns data suitable to populate a form
+ * by recursively calling this function, converting null to undefined.
+ */
+ export function sanitiseQuoteRequestFormData(value: any): any {
+    if (Array.isArray(value)) {
+        return value.map(item => sanitiseQuoteRequestFormData(item));
+    }
+
+    if (value === null) {
+        return "";
+    }
+
+    if (typeof value === 'object') {
+        // Map over each property and convert null to undefined
+        return Object.keys(value).reduce((acc, key) => {
+            // @ts-ignore
+            acc[key] = sanitiseQuoteRequestFormData(value[key]);
+            return acc;
+        }, {});
+    }
+
+    return value;
+}
+
 export const useQuoteRequestForm = () => React.useContext(QuoteRequestFormContext);
