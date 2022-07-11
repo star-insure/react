@@ -1,3 +1,4 @@
+import React from 'react';
 import { ErrorBag, Errors } from "@inertiajs/inertia"
 import { Card } from "../common";
 
