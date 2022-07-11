@@ -18,7 +18,7 @@ export default function FormTester() {
             dob: '1990-01-01',
             licence: 'Other',
             licence_other: 'Test',
-            club_id: 1,
+            club_id: 50,
             club_membership_number: '12345',
             street_address: {
                 address: '123 Street Name',
