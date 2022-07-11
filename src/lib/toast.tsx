@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { Toast } from "@star-insure/sdk";
+import { v4 as uuid } from 'uuid';
 interface ToastContextInterface {
     toasts: Toast[];
     addToast: (toast: Toast) => void;
@@ -21,7 +22,7 @@ export function ToastProvider({ children }: any) {
     function addToast({ message, status, timeout = 4000 }: Toast) {
         const newToast: Toast = { message, status, timeout };
 
-        newToast._id = Date.now().toString();
+        newToast._id = uuid();
 
         setToasts(curr => [...curr, newToast]);
 
