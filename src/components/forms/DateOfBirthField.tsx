@@ -26,7 +26,7 @@ export default function DateOfBirthField({ value, onChange }: Props) {
     })
 
     const thisYear = new Date().getFullYear();
-    const yearOptions = [...Array(100).keys()].map(value => {
+    const yearOptions = [...Array.from(Array(100).keys())].map(value => {
         return (thisYear - value - 16).toString();
     });
 
