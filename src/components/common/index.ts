@@ -3,6 +3,7 @@ import Card from './Card';
 import Pagination from './Pagination';
 import Toast from './Toast';
 import Toasts from './Toasts';
+import Modal from './Modal';
 
 export {
     Button,
@@ -10,4 +11,5 @@ export {
     Pagination,
     Toast,
     Toasts,
+    Modal,
 }
