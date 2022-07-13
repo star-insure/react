@@ -31,39 +31,27 @@ export default function DateOfBirthField({ value, onChange }: Props) {
     });
 
     function handleSelectChange(e: React.FormEvent<HTMLSelectElement>) {
-        // Set local state
-        setDateOfBirth({
+        const { name, value } = e.currentTarget;
+
+        const newDob = {
             ...dateOfBirth,
-            [e.currentTarget.name]: e.currentTarget.value,
-        });
-    }
+            [name]: value,
+        }
 
-    /**
-     * Handle upstream prop updates
-     */
-    React.useEffect(() => {
-        setDateOfBirth({
-            day: value?.split("-")[2] || '',
-            month: value?.split("-")[1] || '',
-            year: value?.split("-")[0] || '',
-        });
-    }, [value]);
+        // Set local state
+        setDateOfBirth(newDob);
 
-    /**
-     * Pass the value upwards
-     */
-    React.useEffect(() => {
-        if (dateOfBirth.day && dateOfBirth.month && dateOfBirth.year) {
-            // Format date in YYYY-MM-DD format
-            const formattedDate = `${dateOfBirth.year}-${dateOfBirth.month}-${dateOfBirth.day}`;
+        // Format the date for the API
+        const formattedDate = `${newDob.year}-${newDob.month}-${newDob.day}`;
 
-            // Call the updater function to emit upwards
+        // Call the upstream prop if we have all of the date parts
+        if (Object.values(newDob).every(value => value !== '')) {
             onChange(formattedDate);
         } else {
-            // Set to an empty string if we're missing part of the date
+            // Otherwise, clear the value
             onChange('');
         }
-    }, [dateOfBirth]);
+    }
 
     return (
         <label className="w-full">
