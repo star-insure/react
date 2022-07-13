@@ -9,9 +9,10 @@ interface Props {
     type?: 'button' | 'submit';
     status?: 'primary' | 'danger' | 'warning' | 'info' | 'default';
     children: React.ReactNode;
+    disabled?: boolean;
 }
 
-export default function Button({ className, href, target, onClick, type, children, status = 'default' }: Props) {
+export default function Button({ className, href, target, onClick, type, children, status = 'default', disabled = false }: Props) {
     const baseClasses = 'font-black inline-flex items-center gap-3 justify-center text-white text-center px-5 py-2 rounded-md min-w-[120px] transition-all hover:opacity-75';
 
     const statusClass = status === 'primary' && 'bg-teal'
@@ -24,7 +25,7 @@ export default function Button({ className, href, target, onClick, type, childre
 
     if (onClick) {
         return (
-            <button className={classes} type={type ?? 'button'} onClick={(e: React.MouseEvent) => onClick(e)}>
+            <button className={classes} type={type ?? 'button'} onClick={(e: React.MouseEvent) => onClick(e)} disabled={disabled}>
                 {children}
             </button>
         )
@@ -32,7 +33,7 @@ export default function Button({ className, href, target, onClick, type, childre
 
     if (type) {
         return (
-            <button className={classes} type={type ?? 'button'}>
+            <button className={classes} type={type ?? 'button'} disabled={disabled}>
                 {children}
             </button>
         )
