@@ -1,7 +1,7 @@
 {
     "name": "@star-insure/react",
     "author": "alexclark_nz",
-    "version": "0.1.18",
+    "version": "0.1.19",
     "description": "A React component library for Star Insure",
     "license": "MIT",
     "main": "dist/index.js",
